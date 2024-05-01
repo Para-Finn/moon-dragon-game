@@ -16,12 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public float groundDecay;
     public bool grounded;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -47,9 +41,9 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector2(xInput * groundSpeed, body.velocity.y);
         }
-        if (Mathf.Abs(yInput) > 0 && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
-            body.velocity = new Vector2(body.velocity.x, yInput * jumpSpeed);
+            body.velocity = new Vector2(body.velocity.x, jumpSpeed);
         }
     }
 
